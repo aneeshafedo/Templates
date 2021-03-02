@@ -97,5 +97,5 @@ function createSheetWithNewLead(json lead) returns @tainted error? {
     if(headers == []){
         var headerAppendResult = check gSheetClient->appendRowToSheet(sheets_id, sheets_name, headerValues);
     }
-    var response = check gSheetClient->appendRowToSheet(sheets_id, sheets_name, values);
+    _ = check gSheetClient->appendRowToSheet(sheets_id, sheets_name, values);
 }
