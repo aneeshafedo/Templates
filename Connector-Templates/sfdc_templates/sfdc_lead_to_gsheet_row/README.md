@@ -1,10 +1,8 @@
-## sfdc to Google Sheet Intergration
-### Intergration Use Case 
-Add rows to Google Sheets Spreadsheet when new Lead is added to Salesforce. All the attributes of the lead would be added to the sheet. 
+# Add rows to Google Sheets Spreadsheet when new Lead is added in Salesforce
+## Intergration Use Case
+At the execution of this template, each time new lead is added in salesforce, Google Sheets Spreadsheet row will be added containing all the defined fields in lead SObject. 
 
-Using this template users can maintain a list of lead in a google sheet real time. 
-
-### Supported Versions
+## Supported Versions
 
 <table>
   <tr>
@@ -34,21 +32,21 @@ Using this template users can maintain a list of lead in a google sheet real tim
 </table>
 
 
-### Pre-requisites
+## Pre-requisites
 * Download and install [Ballerina](https://ballerinalang.org/downloads/).
 * Google Cloud Platform Account
 * Ballerina connectors for Salesforce and Google Sheets which will be automatically downloaded when building the application for the first time
 
 
-### configuration
-#### Setup Salesforce Configurations
+## configuration
+### Setup Salesforce Configurations
 * Create a Salesforce account and create a connected app by visiting [Salesforce](https://www.salesforce.com). 
 * Salesforce username, password and the security token that will be needed for initializing the listener. 
 
 For more information on the secret token, please visit [Reset Your Security Token](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
 Once you obtained all configurations, Replace "" in the `Conf.toml` file with your data.
 
-#### Create Push Topic in Salesforce developer console
+### Create Push Topic in Salesforce developer console
 
 The Salesforce trigger requires topics to be created for each event. We need to configure topic to listen on Custom Object entity.
 
@@ -66,7 +64,7 @@ insert pushTopic;
 ```
 3. Once the creation is done, specify the topic name in the event listener service config.
 
-#### Setup Google Sheets Configurations
+### Setup Google Sheets Configurations
 Create a Google account and create a connected app by visiting [Google cloud platform APIs and Services](https://console.cloud.google.com/apis/dashboard). 
 
 1. Click Library from the left side menu.
@@ -94,7 +92,7 @@ Select OAuth client Id.
 6. Once you obtained all configurations, Create `Config.toml` in root directory.
 7. Replace "" in the `Config.toml` file with your data.
 
-#### Config.toml 
+### Config.toml 
 
 #### ballerinax/slack related configurations 
 
