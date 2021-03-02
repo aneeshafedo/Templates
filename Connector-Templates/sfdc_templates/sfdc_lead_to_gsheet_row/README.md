@@ -87,7 +87,8 @@ Select OAuth client Id.
 
 1. Create new spreadsheet.
 2. Rename the sheet if you want.
-3. Get the ID of the spreadsheet.![alt text](../sfdc_lead_to_gsheet_row/docs/images/spreadsheet_id_example.jpeg?raw=true)
+3. Get the ID of the spreadsheet.  
+![alt text](../sfdc_lead_to_gsheet_row/docs/images/spreadsheet_id_example.jpeg?raw=true)
 5. Get the sheet name
 6. Once you obtained all configurations, Create `Config.toml` in root directory.
 7. Replace "" in the `Config.toml` file with your data.
