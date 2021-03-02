@@ -1,0 +1,18 @@
+[package]
+org = "aneesha"
+name = "template_slack_gsheet"
+version = "0.1.0"
+
+[build-options]
+observabilityIncluded = true
+
+[[dependency]]
+org = "ballerinax"
+name = "googleapis_sheets"
+version = "0.99.5"
+
+
+[[dependency]]
+org = "ballerinax"
+name = "slack"
+version = "0.9.6"
