@@ -3,8 +3,6 @@ import ballerina/io;
 import ballerinax/sfdc;
 import ballerinax/googleapis_sheets as sheets;
 
-const string CREATED = "created";
-
 //salesforce configuration parameter
 configurable string ep_url = ?;
 configurable string sf_client_id = ?;
@@ -13,6 +11,7 @@ configurable string sf_refresh_token = ?;
 configurable string sf_refresh_url = ?;
 configurable string sf_username = ?;
 configurable string sf_password = ?;
+configurable string sf_push_topic = ?;
 
 //gsheet configuration parameters
 configurable string sheets_refreshToken = ?;
@@ -50,7 +49,9 @@ listener sfdc:Listener sfdcEventListener = new (listenerConfig);
 sfdc:BaseClient sfdcClient = check new (sfConfig);
 sheets:Client gSheetClient = check new (spreadsheetConfig);
 
-@sfdc:ServiceConfig {topic: "/topic/NewLead"}
+@sfdc:ServiceConfig {
+    topic: TOPIC_PREFIX + sf_push_topic
+}
 service on sfdcEventListener {
     remote function onEvent(json lead) {
         io:StringReader sr = new (lead.toJsonString());
@@ -58,7 +59,7 @@ service on sfdcEventListener {
         if (leadInfo is json) {
             json|error eventType = leadInfo.event.'type;
             if (eventType is json) {
-                if (CREATED.equalsIgnoreCaseAscii(eventType.toString())) {
+                if (TYPE_CREATED.equalsIgnoreCaseAscii(eventType.toString())) {
                     error|json leadId = leadInfo.sobject.Id;
                     if (leadId is json) {
                         var leadRecord = sfdcClient->getLeadById(leadId.toString());
@@ -95,7 +96,7 @@ function createSheetWithNewLead(json lead) returns @tainted error? {
     }
     var headers = gSheetClient->getRow(sheets_id, sheets_name, 1);
     if(headers == []){
-        var headerAppendResult = check gSheetClient->appendRowToSheet(sheets_id, sheets_name, headerValues);
+        _ = check gSheetClient->appendRowToSheet(sheets_id, sheets_name, headerValues);
     }
     _ = check gSheetClient->appendRowToSheet(sheets_id, sheets_name, values);
 }
