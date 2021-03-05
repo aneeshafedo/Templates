@@ -66,21 +66,21 @@ Add `User OAuth Token` as `slack_token` and Slack Channel
 ### Config.toml 
 
 #### ballerinax/slack related configurations 
-
-ep_url = ""
-sf_client_id = ""
-sf_client_secret = ""
-sf_refresh_token = ""
-sf_refresh_url = ""
-sf_username = ""
-sf_password = ""
-sf_push_topic = "";
+ 
+ep_url = ""  
+sf_client_id = ""  
+sf_client_secret = ""  
+sf_refresh_token = ""  
+sf_refresh_url = ""  
+sf_username = ""  
+sf_password = ""  
+sf_push_topic = ""  
 
 
 #### ballerinax/slack related configurations  
 
-slack_channel_name = ""
-slack_token = ""
+slack_channel_name = ""  
+slack_token = ""  
 
 ## Running the Template
 
