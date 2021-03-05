@@ -3,7 +3,7 @@
 ## Intergration Use Case
 At the execution of this template, each time new lead is added in salesforce, Slack notification will be sent to a specidied Slack channel
 
-## Supported Versions
+## Supported Versions 
 
 <table>
   <tr>
@@ -20,7 +20,7 @@ At the execution of this template, each time new lead is added in salesforce, Sl
   </tr>
   <tr>
    <td>Salesforce API 
-   </td>n
+    </td>
    <td>v48.0
    </td>
   </tr>
@@ -66,21 +66,21 @@ Add `User OAuth Token` as `slack_token` and Slack Channel
 ### Config.toml 
 
 #### ballerinax/slack related configurations 
-
-ep_url = ""
-sf_client_id = ""
-sf_client_secret = ""
-sf_refresh_token = ""
-sf_refresh_url = ""
-sf_username = ""
-sf_password = ""
-sf_push_topic = "";
+ 
+ep_url = ""  
+sf_client_id = ""  
+sf_client_secret = ""  
+sf_refresh_token = ""  
+sf_refresh_url = ""  
+sf_username = ""  
+sf_password = ""  
+sf_push_topic = ""  
 
 
 #### ballerinax/slack related configurations  
 
-slack_channel_name = ""
-slack_token = ""
+slack_channel_name = ""  
+slack_token = ""  
 
 ## Running the Template
 
@@ -106,7 +106,7 @@ Successful listener startup will print following in the console.
 
 4. You can go to slack channel and verify the message reveiving. Following is a sample message 
 
-![Sample Slack Notification](../sfdc_hot_lead_to_slack/docs/images/connector_overview.png?raw=true)
+![Sample Slack Notification](../sfdc_hot_lead_to_slack/docs/images/slack_msg.png?raw=true)
  
 
 
