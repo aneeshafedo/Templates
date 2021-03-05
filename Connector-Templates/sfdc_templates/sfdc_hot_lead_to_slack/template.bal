@@ -97,7 +97,7 @@ function sendSlackMessage(json leadRecord) {
 
     var response = slackClient->postMessage(messageParams);
     if response is string {
-        log:print("Messege Sent in Slack Successfully");
+        log:print("Messege posted in Slack Successfully");
     } else {
         log:printError("Error Occured : " + response.message());
     }
