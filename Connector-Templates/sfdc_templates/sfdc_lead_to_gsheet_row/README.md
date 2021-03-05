@@ -48,11 +48,10 @@ Once you obtained all configurations, Replace "" in the `Conf.toml` file with yo
 
 ### Create Push Topic in Salesforce developer console
 
-The Salesforce trigger requires topics to be created for each event. We need to configure topic to listen on Custom Object entity.
+The Salesforce trigger requires topics to be created for each event. We need to configure topic to listen on Lead entity.
 
 1. From the Salesforce UI, select developer console. Go to debug > Open Execute Anonymous Window. 
-2. Paste following apex code to create topic with <CustomObject> and execute.
-e.g : Consider created custom object as 'Customer'. Check for 'Field Name' in the Fields of the custom object. Normally if the custom object is 'Customer', table that we need to listen will be like 'Customer__c' as following.
+2. Paste following apex code to create topic with <NewLead> and execute. You can change the `pushTopic.Query` adding the fields you want to receive when the event triggered.
 ```apex
 PushTopic pushTopic = new PushTopic();
 pushTopic.Name = 'NewLead';
@@ -62,7 +61,7 @@ pushTopic.NotifyForOperationCreate = true;
 pushTopic.NotifyForFields = 'Referenced';
 insert pushTopic;
 ```
-3. Once the creation is done, specify the topic name in the event listener service config.
+3. Once the creation is done, specify the topic name in your `Config.toml` file as `sf_push_topic`.
 
 ### Setup Google Sheets Configurations
 Create a Google account and create a connected app by visiting [Google cloud platform APIs and Services](https://console.cloud.google.com/apis/dashboard). 
@@ -74,14 +73,14 @@ Create a Google account and create a connected app by visiting [Google cloud pla
 5. Click Credential tab from left side bar. In the displaying window click Create Credentials button
 Select OAuth client Id.
 6. Fill the required field. Add https://developers.google.com/oauthplayground to the Redirect URI field.
-7. Get clientId and secret. Put it on the config(ballerina.conf) file.
+7. Get clientId and secret. Put it on the config(Config.toml) file.
 8. Visit https://developers.google.com/oauthplayground/ 
     Go to settings (Top right corner) -> Tick 'Use your own OAuth credentials' and insert Oauth ClientId and secret.Click close.
 9. Then,Complete Step1 (Select and Authotrize API's)
 10. Make sure you select https://www.googleapis.com/auth/drive & https://www.googleapis.com/auth/spreadsheets Oauth scopes.
 11. Click Authorize API's and You will be in Step 2.
 12. Exchange Auth code for tokens.
-13. Copy Access token and Refresh token. Put it on the config(ballerina.conf) file.
+13. Copy Access token and Refresh token. Put it on the config(Config.toml) file.
 
 ## Configuring the Integration Template
 
