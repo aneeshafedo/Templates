@@ -14,12 +14,12 @@ configurable string sf_password = ?;
 configurable string sf_push_topic = ?;
 
 //gsheet configuration parameters
-configurable string sheets_refreshToken = ?;
-configurable string sheets_clientId = ?;
-configurable string sheets_clientSecret = ?;
+configurable string sheets_refresh_token = ?;
+configurable string sheets_client_id = ?;
+configurable string sheets_client_secret = ?;
 configurable string sheets_id = ?;
 configurable string sheets_name = ?;
-configurable string sheets_refreshurl = ?;
+configurable string sheets_refresh_url = ?;
 
 sfdc:SalesforceConfiguration sfConfig = {
     baseUrl: ep_url,
@@ -33,10 +33,10 @@ sfdc:SalesforceConfiguration sfConfig = {
 
 sheets:SpreadsheetConfiguration spreadsheetConfig = {
     oauthClientConfig: {
-        clientId: sheets_clientId,
-        clientSecret: sheets_clientSecret,
-        refreshUrl: sheets_refreshurl,
-        refreshToken: sheets_refreshToken
+        clientId: sheets_client_id,
+        clientSecret: sheets_client_secret,
+        refreshUrl: sheets_refresh_url,
+        refreshToken: sheets_refresh_token
     }
 };
 
