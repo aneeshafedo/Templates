@@ -106,7 +106,7 @@ Successful listener startup will print following in the console.
 
 4. You can go to slack channel and verify the message receiving. Following is a sample message 
 
-![Sample Slack Notification](../sfdc_oppotunity_update_to_slack/docs/images/closed_won.png?raw=true)
+![Sample Slack Notification](../sfdc_oppotunity_closedwon_to_slack/docs/images/closed_won.png?raw=true)
  
 
 
