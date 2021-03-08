@@ -1,7 +1,7 @@
-# Send Slack Channel Message when a Salesforce Opportunity is marked `Closed Won`
+# Send Slack Channel Message when a Salesforce Opportunity is Updated
 
 ## Intergration Use Case
-At the execution of this template, when opportunity stage is updated to `Closed Won`, Slack notification will be sent to a specidied Slack channel
+At the execution of this template, when an opportunityis updated , Slack notification will be sent to a specidied Slack channel
 
 ## Supported Versions
 
@@ -46,14 +46,14 @@ Once you obtained all configurations, Replace "" in the `Conf.toml` file with yo
 The Salesforce trigger requires topics to be created for each event. We need to configure topic to listen on Lead entity.
 
 1. From the Salesforce UI, select developer console. Go to debug > Open Execute Anonymous Window. 
-2. Paste following apex code to create topic with <OpportunityUpdate> and execute. You can change the `pushTopic.Query` adding the fields you want to receive when the event triggered. Make sure you hv added `StageName` and all other given fields to the `SELECT` query. 
+2. Paste following apex code to create topic with <OpportunityUpdate> and execute. You can change the `pushTopic.Query` adding the fields you want to receive when the event triggered. Make sure `pushTopic.NotifyForFields` is set to `All` if you need to listen to the update of any field of an opportunity. Only to listen to the update of the fields specified in the `pushTopic.Query` set `pushTopic.NotifyForFields` to `Referenced`. 
 ```apex
 PushTopic pushTopic = new PushTopic();
 pushTopic.Name = 'OpportunityUpdate';
 pushTopic.Query = 'SELECT Id, Name, AccountId, StageName, Amount FROM Opportunity';
 pushTopic.ApiVersion = 48.0;
 pushTopic.NotifyForOperationUpdate = true;
-pushTopic.NotifyForFields = 'Referenced';
+pushTopic.NotifyForFields = 'All';
 insert pushTopic;
 ```
 3. Once the creation is done, specify the topic name in your `Config.toml` file as `sf_push_topic`.
@@ -88,7 +88,7 @@ slack_token = ""
 `$ bal build`. 
 
 2. Then you can run the integration binary with the following command. 
-`$ bal run /target/bin/sfdc_oppotunity_closedwon_to_slack.jar`. 
+`$ bal run /target/bin/sfdc_oppotunity_update_to_slack.jar`. 
 
 Successful listener startup will print following in the console.
 ```
@@ -102,11 +102,9 @@ Successful listener startup will print following in the console.
 <<<<
 ```
 
-3. Now you can update the `Stage` of a `Opportunity` in Salesforce and observe that integration template runtime has received the event notification for opportunity updated to `Closed Won`.
+3. Now you can update the a `Opportunity` in Salesforce and observe that integration template runtime has received the event notification for the opportunity update.
 
 4. You can go to slack channel and verify the message receiving. Following is a sample message 
 
-![Sample Slack Notification](../sfdc_oppotunity_update_to_slack/docs/images/closed_won.png?raw=true)
+![Sample Slack Notification](../sfdc_opportunity_update_to_slack/docs/images/opp_update.png?raw=true)
  
-
-
