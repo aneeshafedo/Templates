@@ -1,0 +1,7 @@
+[package]
+org = "aneesha"
+name = "sfdc_record_to_ghseet"
+version = "0.1.0"
+
+[build-options]
+observabilityIncluded = true
