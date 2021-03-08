@@ -108,24 +108,24 @@ Select OAuth client Id.
 
 #### ballerinax/slack related configurations 
 
-ep_url = ""
-sf_client_id = ""
-sf_client_secret = ""
-sf_refresh_token = ""
-sf_refresh_url = ""
-sf_username = ""
-sf_password = ""
-sf_push_topic = "";
+ep_url = ""  
+sf_client_id = ""  
+sf_client_secret = ""  
+sf_refresh_token = ""  
+sf_refresh_url = ""  
+sf_username = ""  
+sf_password = ""  
+sf_push_topic = ""  
 
 
 #### ballerinax/googleapis_sheet related configurations  
 
-sheets_refreshToken = ""
-sheets_clientId = ""
-sheets_clientSecret = ""
-sheets_refreshurl = ""
-sheets_id = ""
-sheets_name = ""
+sheets_refreshToken = ""  
+sheets_clientId = ""  
+sheets_clientSecret = ""  
+sheets_refreshurl = ""  
+sheets_id = ""  
+sheets_name = ""  
 
 ## Running the Template
 
