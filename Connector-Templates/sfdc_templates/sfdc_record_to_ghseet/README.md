@@ -1,6 +1,6 @@
-# Add rows to Google Sheets Spreadsheet when a new record is added in Salesforce
+# Add rows to Google Sheets Spreadsheet when a New Record is Added in Salesforce
 ## Intergration Use Case
-At the execution of this template, each time new record is added in salesforce, Google Sheets Spreadsheet row will be added containing all the defined fields in particular SObject. Users need to provide the name of the SObject they wish to log into the GSheet as a configuration parameter (`sf_object`) prior to the execution. 
+At the execution of this template, each time a new record is added in salesforce, Google Sheets Spreadsheet row will be added containing all the defined fields of particular SObject. Users need to provide the name of the SObject they wish to log into the GSheet as a configuration parameter (`sf_object`) prior to the execution. 
 
 ## Supported Versions
 
@@ -40,11 +40,24 @@ At the execution of this template, each time new record is added in salesforce, 
 
 ## configuration
 ### Setup Salesforce Configurations
-* Create a Salesforce account and create a connected app by visiting [Salesforce](https://www.salesforce.com). 
-* Salesforce username, password and the security token that will be needed for initializing the listener. 
 
-For more information on the secret token, please visit [Reset Your Security Token](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
-Once you obtained all configurations, Replace "" in the `Conf.toml` file with your data.
+1. Visit [Salesforce](https://www.salesforce.com/) and create a Salesforce Account.
+2. Create a connected app and obtain the following credentials:
+    *   Base URL (Endpoint)
+    *   Access Token
+    *   Client ID
+    *   Client Secret
+    *   Refresh Token
+    *   Refresh Token URL
+3. When you are setting up the connected app, select the following scopes under Selected OAuth Scopes:
+    *   Access and manage your data (api)
+    *   Perform requests on your behalf at any time (refresh_token, offline_access)
+    *   Provide access to your data via the Web (web)
+4. Provide the client ID and client secret to obtain the refresh token and access token. For more information on obtaining OAuth2 credentials, go to [Salesforce documentation](https://help.salesforce.com/articleView?id=remoteaccess_authenticate_overview.htm).
+5.  Salesforce username, password and the security token that will be needed for initializing the listener. 
+    For more information on the secret token, please visit [Reset Your Security Token](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
+    
+Once you obtained all configurations, Replace "" in the `Conf.toml` file with your data. For the `sf_password` insert the combination of your Salesforce account password with the security token received 
 
 ### Create Push Topic in Salesforce developer console
 
@@ -70,8 +83,7 @@ Create a Google account and create a connected app by visiting [Google cloud pla
 2. In the search bar enter Google Sheets.
 3. Then select Google Sheets API and click Enable button.
 4. Complete OAuth Consent Screen setup.
-5. Click Credential tab from left side bar. In the displaying window click Create Credentials button
-Select OAuth client Id.
+5. Click Credential tab from left side bar. In the displaying window click `Create Credentials` button and select `OAuth client Id`.
 6. Fill the required field. Add https://developers.google.com/oauthplayground to the Redirect URI field.
 7. Get clientId and secret. Put it on the config(Config.toml) file.
 8. Visit https://developers.google.com/oauthplayground/ 
@@ -96,24 +108,25 @@ Select OAuth client Id.
 
 #### ballerinax/slack related configurations 
 
-ep_url = ""
-sf_client_id = ""
-sf_client_secret = ""
-sf_refresh_token = ""
-sf_refresh_url = ""
-sf_username = ""
-sf_password = ""
-sf_push_topic = "";
+ep_url = ""  
+sf_client_id = ""  
+sf_client_secret = ""  
+sf_refresh_token = ""  
+sf_refresh_url = ""  
+sf_username = ""  
+sf_password = ""  
+sf_push_topic = ""  
+sf_object = ""  
 
 
 #### ballerinax/googleapis_sheet related configurations  
 
-sheets_refreshToken = ""
-sheets_clientId = ""
-sheets_clientSecret = ""
-sheets_refreshurl = ""
-sheets_id = ""
-sheets_name = ""
+sheets_refreshToken = ""  
+sheets_clientId = ""  
+sheets_clientSecret = ""  
+sheets_refreshurl = ""  
+sheets_id = ""  
+sheets_name = ""  
 
 ## Running the Template
 
