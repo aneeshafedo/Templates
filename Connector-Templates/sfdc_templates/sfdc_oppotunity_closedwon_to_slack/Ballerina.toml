@@ -1,6 +1,6 @@
 [package]
 org = "aneesha"
-name = "sfdc_oppotunity_update_to_slack"
+name = "sfdc_oppotunity_closedwon_to_slack"
 version = "0.1.0"
 
 [build-options]

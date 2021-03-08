@@ -88,7 +88,7 @@ slack_token = ""
 `$ bal build`. 
 
 2. Then you can run the integration binary with the following command. 
-`$ bal run /target/bin/sfdc_opportunity_update_to_slack.jar`. 
+`$ bal run /target/bin/sfdc_oppotunity_closedwon_to_slack.jar`. 
 
 Successful listener startup will print following in the console.
 ```
