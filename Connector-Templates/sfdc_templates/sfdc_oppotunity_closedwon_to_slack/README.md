@@ -59,7 +59,7 @@ insert pushTopic;
 3. Once the creation is done, specify the topic name in your `Config.toml` file as `sf_push_topic`.
 
 ### Setup Slack Configurations
-Go to your Slack app and obtain Slack `User OAuth Token` starting with `xoxo-` under `OAuth & Permissions` in App settings. 
+Go to your Slack app and obtain Slack `User OAuth Token` starting with `xoxp-` under `OAuth & Permissions` in App settings. 
 
 Add `User OAuth Token` as `slack_token` and Slack Channel 
 
